@@ -48,7 +48,7 @@ parser = cifar10.parser
 parser.add_argument('--train_dir', type=str, default='/tmp/cifar10_train',
                     help='Directory where to write event logs and checkpoint.')
 
-parser.add_argument('--max_steps', type=int, default=1000000,
+parser.add_argument('--max_steps', type=int, default=10000,
                     help='Number of batches to run.')
 
 parser.add_argument('--log_device_placement', type=bool, default=False,
@@ -122,8 +122,11 @@ def main(argv=None):  # pylint: disable=unused-argument
   if tf.gfile.Exists(FLAGS.train_dir):
     tf.gfile.DeleteRecursively(FLAGS.train_dir)
   tf.gfile.MakeDirs(FLAGS.train_dir)
+  start_time = datetime.now()
   train()
-
+  end_time = datetime.now()
+  print("start time: ", start_time)
+  print("end_time: ", end_time)
 
 if __name__ == '__main__':
   FLAGS = parser.parse_args()
