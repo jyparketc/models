@@ -122,11 +122,7 @@ def main(argv=None):  # pylint: disable=unused-argument
   if tf.gfile.Exists(FLAGS.train_dir):
     tf.gfile.DeleteRecursively(FLAGS.train_dir)
   tf.gfile.MakeDirs(FLAGS.train_dir)
-  start_time = datetime.now()
   train()
-  end_time = datetime.now()
-  print("start time: ", start_time)
-  print("end_time: ", end_time)
 
 if __name__ == '__main__':
   FLAGS = parser.parse_args()
